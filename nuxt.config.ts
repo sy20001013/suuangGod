@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/css/normalize.css']
+  modules: [
+    '@ant-design-vue/nuxt',
+  ],
+  antd:{
+    // Options
+  },
+  css: ['~/assets/css/normalize.css'],
+  
 })
