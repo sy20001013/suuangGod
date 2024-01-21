@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
-
+import { Form } from 'ant-design-vue';
+const FormItemRest = Form.ItemRest; //正解
 const { data: res } = await useFetch("/api/channl");
 console.log(res);
 const route = useRoute();
