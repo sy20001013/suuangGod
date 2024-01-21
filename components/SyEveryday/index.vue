@@ -266,11 +266,11 @@ const arr = ref([
 //   z-index: 1;
 //   border-radius: 15px 15px 15px 15px;
 // }
-/deep/ :where(.css-dev-only-do-not-override-19yxfbp).ant-carousel .slick-prev {
+:deep(:where(.css-dev-only-do-not-override-19yxfbp).ant-carousel .slick-prev ) {
   left: -20px !important;
   font-size: 15px !important;
 }
-/deep/ :where(.css-dev-only-do-not-override-19yxfbp).ant-carousel .slick-next {
+:deep(:where(.css-dev-only-do-not-override-19yxfbp).ant-carousel .slick-next) {
   right: -25px !important;
   font-size: 15px !important;
 }
@@ -281,7 +281,7 @@ const arr = ref([
   color: #fff;
   opacity: 0.5;
 }
-/deep/ .slick-arrow.custom-slick-arrow {
+:deep(.slick-arrow.custom-slick-arrow) {
   background: transparent;
   color:  #000000 !important;
   // color:  #871010 !important;

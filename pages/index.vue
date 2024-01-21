@@ -77,27 +77,28 @@ const switchTab = (url) => {
 
 
 <style lang="less" scoped>
-/deep/ .ant-menu {
+:deep(.ant-menu) {
   background: transparent !important;
 }
-/deep/
-  :where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light
-  .ant-menu-item-selected {
+
+:deep(.ant-menu :where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light
+  .ant-menu-item-selected) {
   background: #e3e3e3 !important;
 }
-/deep/
-  :where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light
-  .ant-menu-item-selected,
-:where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light
-  .ant-menu-item-selected
-  :hover {
-  font-size: 18px !important;
+:deep( :where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light
+  .ant-menu-item-selected){
+    font-size: 18px !important;
   font-family: Roboto, Roboto;
   font-weight: 700 !important;
   color: #000000 !important;
+  }
+  :deep(:where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light
+  .ant-menu-item-selected
+  :hover){
+ 
 }
 
-/deep/ :where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light .ant-menu-submenu-selected >.ant-menu-submenu-title {
+:deep(:where(.css-dev-only-do-not-override-19yxfbp).ant-menu-light .ant-menu-submenu-selected >.ant-menu-submenu-title ){
   color:#000000 !important;
 }
 .suyang {
