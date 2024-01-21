@@ -1,3 +1,20 @@
+<script setup>
+import confetti from '@/node_modules/canvas-confetti'
+import {ref} from 'vue'
+const browse = () => {
+  confetti({
+        angle: 90,
+        spread:160,
+        particleCount: 500,
+      })
+    }
+const arr = ref([
+  {id:1,name:'天空',cart:'',content:'在她的世界里所有事物都是美丽温暖的',author:'枫来了',author_avatar:'',time:'2024年1月20日'},
+  {id:2,name:'Nuxt3',cart:'',content:'Nuxt是一个 开源框架 ，使得Web开发变得直观且强大可以自信地创建高性能和生产级别的全栈Web应用和网站。',author:'SuYang',author_avatar:'',time:'2024年1月18日'},
+])
+
+
+</script>
 <template>
   <div class="sy_everyday">
     <div class="sy_everyday_item">
@@ -12,19 +29,19 @@
             <RightOutlined />
           </div>
         </template>
-        <div class="sy_carousel" v-for="item in 4" :key="item">
-          <div class="sy_carousel_item"></div>
+        <div class="sy_carousel" v-for="item in arr" :key="item.id">
+          <div class="sy_carousel_item"> <img src="/assets/images/lbt.jpg" alt=""></div>
           <div class="sy_carousel_text">
-            <div class="sy_label">游戏</div>
-            <div class="sy_carousel_title">5 2021年奥运会开幕式,5 2021年奥运会开幕式,5 2021年奥运会开幕式,5 2021年奥运会开幕式,5 2021年奥运会开幕式,5 2021年奥运会开幕式,5 2021年奥运会开幕式</div>
+            <div class="sy_label">{{item.name}}</div>
+            <div class="sy_carousel_title">{{ item.content }}</div>
             <div class="sy_carousel_information">
-              <div class="sy_carousel_avatar"></div>
+              <div class="sy_carousel_avatar"><img src="/assets/images/sy_zzf.jpg" alt=""></div>
               <div class="sy_carousel_hend">
-                <div class="sy_carousel_top">管理员SuYangLing</div>
-                <div class="sy_carousel_but">2021年8月1日</div>
+                <div class="sy_carousel_top">{{item.author}}</div>
+                <div class="sy_carousel_but">{{item.time}}</div>
               </div>
             </div>
-            <div class="browse">阅读</div>
+            <div class="browse" @click="browse">精彩</div>
           </div>
         </div>
         
@@ -33,13 +50,15 @@
     <div class="sy_terbaru">
       <div class="sy_terbaru_title">最近文章</div>
       <div class="sy_terbaru_artike">
-        <div class="sy_artike_item" v-for="item in 2" :key="item">
-          <div class="sy_artikel_chart"></div>
+        <div class="sy_artike_item" v-for="item in arr" :key="item.id">
+          <div class="sy_artikel_chart">
+            <img src="/assets/images/lbt.jpg" alt="">
+          </div>
           <div class="sy_artikel_content">
-            <div class="sy_artikel_title">5 2021年奥运会开幕式,5 2021年奥运会开幕式</div>
+            <div class="sy_artikel_title">{{ item.content }}</div>
             <div class="sy_author">
-              <div class="sy_author_name">管理员SuYangLing</div>
-              <div class="sy_author_time">2021年8月1日</div>
+              <div class="sy_author_name">{{item.author}}</div>
+              <div class="sy_author_time">{{item.time}}</div>
             </div>
           </div>
         </div>
@@ -48,9 +67,7 @@
   </div>
 </template>
 
-<script setup>
-import {} from 'vue'
-</script>
+
 
 <style lang="less" scoped>
   .sy_everyday {
@@ -61,17 +78,28 @@ import {} from 'vue'
     .sy_everyday_item {
       width: 680px;
       height: 246px;
+      background: rgba(242,246,249,0.4);
+      box-shadow: 0px 3px 25px 0px rgba(147,195,232,0.7);
+      border-radius: 15px 15px 15px 15px;
+      
       .sy_carousel {
         display: flex !important;
-        width: 100%;
-        height: 100%;
+        width: 680px;
+        height: 246px;
         padding: 15px;
         box-sizing: border-box;
+        overflow: hidden;
         .sy_carousel_item {
           width: 229px;
           height: 212px;
           background: #FCDEC2;
           border-radius: 15px 15px 15px 15px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+          }
         }
         .sy_carousel_text {
           position: relative;
@@ -106,6 +134,7 @@ import {} from 'vue'
               img {
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
               }
             }
             .sy_carousel_hend {
@@ -147,7 +176,7 @@ import {} from 'vue'
       width: 508px;
       height: 246px;
       background: rgba(242,246,249,0.4);
-      box-shadow: 0px 3 25px 0px rgba(147,195,232,0.7);
+      box-shadow: 0px 3px 25px 0px rgba(147,195,232,0.7);
       border-radius: 15px 15px 15px 15px;
       padding: 14px 17px;
       box-sizing: border-box;
@@ -180,10 +209,12 @@ import {} from 'vue'
             border-radius: 8px 8px 8px 8px;
             img {
               width: 100%;
-              height: 10%;
+              height: 100%;
+              border-radius: 8px 0px 0px 8px;
             }
           } 
           .sy_artikel_content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             margin-left: 10px;
@@ -192,6 +223,12 @@ import {} from 'vue'
               font-family: Roboto, Roboto;
               font-weight: 500;
               color: #000000;
+              width: 100%; 
+              overflow:hidden;
+              text-overflow:ellipsis;
+              display:-webkit-box; 
+              -webkit-box-orient:vertical; 
+              -webkit-line-clamp:2;
             }
             .sy_author {
               display: flex;
@@ -217,14 +254,7 @@ import {} from 'vue'
       }
     }
   }
-  :deep(.slick-slide) {
-    display: flex;
-    width: 450px;
-    height: 246px;
-    background: rgba(242,246,249,0.4);
-    box-shadow: 0px 3 25px 0px rgba(147,195,232,0.7);
-    border-radius: 15px 15px 15px 15px;
-}
+
 // :deep(.slick-arrow.custom-slick-arrow) {
 //   width: 25px;
 //   height: 25px;
@@ -259,7 +289,5 @@ import {} from 'vue'
     color:  #000000 !important;
   }
 }
-:deep(.slick-slide h3) {
-  color: #841616;
-}
+
 </style>

@@ -1,18 +1,37 @@
+<script setup>
+import {ref} from 'vue'
+import confetti from '@/node_modules/canvas-confetti'
+
+const arr = ref([
+  {id:1,name:'Vue3',cart:''},
+  {id:2,name:'React',cart:''},
+  {id:3,name:'Nuxt3',cart:''},
+  {id:4,name:'相册',cart:''},
+  {id:5,name:'进度',cart:''},
+  {id:6,name:'归档',cart:''}
+])
+  const wonderful = () => {
+    confetti({
+        angle: 90,
+        spread:180,
+        particleCount: 500,
+      });
+  }
+</script>
+
 <template>
   <div class="sy_home_nav">
-      <div class="sy_nav_item" v-for="item in 11" :key="item">
+      <div class="sy_nav_item" v-for="item in arr" :key="item.id">
         <div class="sy_avatar">
-          <div class="sy_avatar_name">动漫</div>
+          <div class="sy_avatar_name">{{item.name}}</div>
           <img src="/assets/images/sy_zzf.jpg" alt="">
         </div>
-        <div class="sy_name">动漫</div>
+        <div class="sy_name" @click="wonderful">{{item.name}}</div>
       </div>
     </div>
 </template>
 
-<script setup>
-import {} from 'vue'
-</script>
+
 
 <style  lang="less" scoped>
 .sy_home_nav {
@@ -42,7 +61,7 @@ import {} from 'vue'
         position: relative;
         width: 84px;
         height: 84px;
-        box-shadow: 0px 2 11px 0px #C0DBF0;
+        box-shadow: 0px 2px 11px 0px #C0DBF0;
         border: 5px solid #FFFFFF;
         border-radius: 50%;
         overflow: hidden;

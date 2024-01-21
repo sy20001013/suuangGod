@@ -1,15 +1,19 @@
 <template>
+<a-affix :offset-top="top">
   <div class="content_top">
-    <div class="welcome">你好，AriefSenpai，欢迎来到Rekomendasiku</div>
+    <div class="welcome">你好，枫来了~，欢迎来到SuYangBrokenStation</div>
     <div class="search">
       <input type="text" placeholder="搜索">
       <div class="search_icon"><img src="/assets/images/Vector.png" alt=""></div>
     </div>
   </div>
+</a-affix>
+  
 </template>
 
 <script setup>
-import {} from 'vue'
+import {ref} from 'vue'
+const top = ref(1);
 </script>
 
 <style lang="less" scoped>
@@ -19,6 +23,7 @@ import {} from 'vue'
   justify-content: space-between;
   width: 100%;
   height: 80px;
+  background: rgba(255,255,255,.1);
   box-shadow: 4px 0px 50px 0px rgba(172, 211, 241, 0.44);
   border-radius: 0px 0px 0px 0px;
   padding: 0 52px;

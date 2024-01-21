@@ -7,6 +7,5 @@ export default defineNuxtConfig({
   antd:{
     // Options
   },
-  css: ['~/assets/css/normalize.css'],
-  
+  css: ['~/assets/css/normalize.css']
 })

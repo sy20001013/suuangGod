@@ -32,13 +32,16 @@ const switchTab = (url) => {
     }
   );
 };
+
 </script>
 <template>
   <div class="suyang">
     <div class="suyang_page"></div>
     <div class="suyang_page_hd">
       <div class="navigation">
-        <div class="navigation_logo"></div>
+        <div class="navigation_logo">
+          <img src="/assets/images/logo.png" alt="">
+        </div>
         <a-layout-sider width="190" style="margin-top: 80px">
           <a-menu
             v-model:selectedKeys="selectedKeys2"
@@ -64,6 +67,7 @@ const switchTab = (url) => {
       </div>
       <div class="content">
        <Tab></Tab>
+       
         <NuxtPage></NuxtPage>
       </div>
     </div>
@@ -123,14 +127,36 @@ const switchTab = (url) => {
       width: 190px;
       height: 100vh;
       padding: 0 16px;
-      // background: rgba(242,246,249,0.75);
+      // background: rgba(242,246,249,0.1);
       box-shadow: 4px 0px 50px 0px rgba(172, 211, 241, 0.44);
       border-radius: 0px 0px 0px 0px;
       // opacity: 1;
     }
+    .navigation_logo{
+      margin-top:10px;
+      width: 86px;
+      height: 60px;
+      animation:move 2s linear 0s infinite alternate;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    @keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0px, 10px);
+    }
+   
+}
+
     .content {
       flex: 1;
-      
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
   }
 }
