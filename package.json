@@ -10,13 +10,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@ant-design-vue/nuxt": "^1.4.1",
     "nuxt": "^3.9.1",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "ant-design-vue": "^4.1.1",
     "canvas-confetti": "^1.9.2",
     "less": "^4.2.0"
   }
