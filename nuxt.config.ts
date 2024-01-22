@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   // modules: [ '@ant-design-vue/nuxt' ],
-  plugins: ['/assets/js/antd-ui.js'],
+  plugins: ['/plugins/antd-ui.js'],
   // antd:{
   //   // Options
   // },
