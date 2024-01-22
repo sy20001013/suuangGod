@@ -21,12 +21,14 @@ const arr = ref([
       <a-carousel arrows :dots="false" :autoplay="true" >
         <template #prevArrow>
           <div class="custom-slick-arrow" style="left: 10px; z-index: 1">
-           <LeftOutlined />
+            <!-- <LeftOutlined /> -->
+            <img src="/assets/images/sy_left.png" alt=""  style="width: 20px;height: 20px;">
           </div>
         </template>
         <template #nextArrow>
           <div class="custom-slick-arrow" style="right: 10px">
-            <RightOutlined />
+            <!-- <RightOutlined /> -->
+            <img src="/assets/images/sy_right.png" alt="" style="width: 20px;height: 20px;">
           </div>
         </template>
         <div class="sy_carousel" v-for="item in arr" :key="item.id">
@@ -267,7 +269,7 @@ const arr = ref([
 //   border-radius: 15px 15px 15px 15px;
 // }
 :deep(:where(.css-dev-only-do-not-override-19yxfbp).ant-carousel .slick-prev ) {
-  left: -20px !important;
+  left: -25px !important;
   font-size: 15px !important;
 }
 :deep(:where(.css-dev-only-do-not-override-19yxfbp).ant-carousel .slick-next) {
